@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sigorta</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <style>
+    .shopping-cart-list{
+      position: absolute;
+      width: 15rem;
+      
+      right: -0.10rem;
+      top: 2,9rem;
+      padding: 0,3rem;
+
+    }
+    .cgl{
+      position: relative;
+      width: 40px;
+      height: 90px;
+      
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="jquery-2.1.4.js"></script>
+
+  
+  
+</head>
+<body>
+  <table class="table table-dark table-striped" id="myTable">
+    <thead>
+      <tr">
+        <th scope="col">Şirket</th>
+        <th scope="col">Türü</th>
+        <th scope="col">Fiyat</th>
+        <th scope="col">Satın Al</th>
+       
+      </tr>
+      <tr class="satır">
+        <td class="sirket" id="sirket0"></td>
+        <td class="sirkett"  id="tür0"></td>
+        <td class="sirketf"  id="fiyat0"></td>
+        <td id="modal1">
+          <button class="info"  type="button" onclick="modalAc(0)" data-bs-toggle="modal" data-bs-target="#exampleModal">incele</button>
+        </td>
+      </tr>
+      <tr class="satır">
+        <td class="sirket" id="sirket1"></td>
+        <td class="sirkett"  id="tür1"></td>
+        <td class="sirketf"  id="fiyat1"></td>
+        <td id="modal1">
+          <button class="info" type="button" onclick="modalAc(1)" data-bs-toggle="modal" data-bs-target="#exampleModal">incele</button>
+        </td>
+      </tr>
+      <tr class="satır">
+        <td class="sirket" id="sirket2"></td>
+        <td class="sirkett"  id="tür2"></td>
+        <td class="sirketf"  id="fiyat2"></td>
+        <td id="modal1">          
+          <button class="info"  type="button" onclick="modalAc(2)" data-bs-toggle="modal" data-bs-target="#exampleModal">incele</button>
+        </td>
+      </tr>
+      <tr class="satır" >
+        <td class="sirket" id="sirket3"></td>
+        <td class="sirkett"  id="tür3"></td>
+        <td class="sirketf"  id="fiyat3"></td>
+        <td id="modal1">
+          <button class="info"  type="button" onclick="modalAc(3)" data-bs-toggle="modal" data-bs-target="#exampleModal">incele</button>
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  <!-- <button id="odeme">alert</button> -->
+  <script>
+
+function alert(){
+  swal("Teşekkürler!", "Ödemeniz Başarı ile Gerçekleşti!", "success");
+
+}
+
+
+  
+   
+
+    let sigorta_sirketleri = [
+      {
+        id: 1,
+        acente_adi: "AK Sigorta",
+        tür: "Trafik Sigortası",
+        fiyat: 1100
+      },
+      {
+        id: 2,
+        acente_adi: "ANADOLU Sigorta",
+        tür: "DASK Sigortası",
+        fiyat: 1200
+      },
+      {
+        id: 3,
+        acente_adi: "ALLİANZ Sigorta",
+        tür: "Kasko Sigortası",
+        fiyat: 1300
+      },
+      {
+        id: 4,
+        acente_adi: "RAY Sigorta",
+        tür: "HayatSigortası",
+        fiyat: 1400
+      },
+      {
+        id: 5,
+        acente_adi: "HDI Sigorta",
+        tür: "Trafik Sigortası",
+        fiyat: 1500
+      },
+      {
+        id: 6,
+        acente_adi: "Mapfre Sigorta",
+        tür: "Kasko Sigortası",
+        fiyat: 1600
+      },
+      {
+        id: 7,
+        acente_adi: "Groupama Sigorta",
+        tür: "Tamamlayıcı Sağlık Sigortası",
+        fiyat: 1700
+      },
+      {
+        id: 8,
+        acente_adi: "Sompo Sigorta",
+        tür: "Özel Sağlık Sigortası",
+        fiyat: 1800
+      },
+      {
+        id: 9,
+        acente_adi: "Türkiye Sigorta",
+        tür: "Kasko Sigortası",
+        fiyat: 1900
+      },
+      {
+        id: 10,
+        acente_adi: "Unico Sigorta",
+        tür: "Konut Sigortası",
+        fiyat: 2000
+      },
+      {
+        id: 11,
+        acente_adi: "Zurich Sigorta",
+        tür: "Seyahat Sigortası",
+        fiyat: 2100
+      },
+      {
+        id: 12,
+        acente_adi: "Axa Sigorta",
+        tür: "Kasko Sigortası",
+        fiyat: 6100
+      },
+      {
+        id: 13,
+        acente_adi: "Bereket Sigorta",
+        tür: "Zorunlu Deprem Sigortası",
+        fiyat: 1100
+      },
+      {
+        id: 14,
+        acente_adi: "TDB Sigorta",
+        tür: "Bireysel Emeklilik Sigortası",
+        fiyat: 7400
+      },
+      {
+        id: 15,
+        acente_adi: "Emek Sigorta",
+        tür: "Kasko Sigortası",
+        fiyat: 1500
+      },
+      {
+        id: 16,
+        acente_adi: " Sigorta",
+        tür: "Seyahat Sigortası",
+        fiyat: 2200
+      },
+      {
+        id: 17,
+        acente_adi: "ERGO Sigorta",
+        tür: "Kasko Sigortası",
+        fiyat: 6400
+      },
+      {
+        id: 18,
+        acente_adi: "Doğa Sigorta",
+        tür: "Hayat Sigortası",
+        fiyat:8700
+      },
+      {
+        id: 19,
+        acente_adi: "Agesa Sigorta",
+        tür: "Konut Sigortası",
+        fiyat: 2400
+      },
+      {
+        id: 20,
+        acente_adi: "Quıck Sigorta",
+        tür: "Trafik Sigortası",
+        fiyat: 4700
+      },
+    ];
+    let randomSirketler = [];
+    for (let index = 0; index < 4; index++) {
+      document.querySelector("#sirket"+index).innerHTML = (sigorta_sirketleri[Math.floor(Math.random() * sigorta_sirketleri.length)]).acente_adi;
+      document.querySelector("#fiyat"+index).innerHTML = (sigorta_sirketleri[Math.floor(Math.random() * sigorta_sirketleri.length)]).fiyat;
+      document.querySelector("#tür"+index).innerHTML = (sigorta_sirketleri[Math.floor(Math.random() * sigorta_sirketleri.length)]).tür;
+    }
+
+
+    function  modalAc(sira) {
+      document.querySelector('#sirket_ismi').innerHTML = document.querySelector('#sirket'+sira).innerHTML;
+      document.querySelector('#sirket_fiyat').innerHTML = document.querySelector('#fiyat'+sira).innerHTML;
+      document.querySelector('#sirket_tür').innerHTML = document.querySelector('#tür'+sira).innerHTML;
+
+
+      function  shoppingCartlist(sira) {
+      document.querySelector('#sirket_ismi').innerHTML = document.querySelector('#sirket'+sira).innerHTML;
+      document.querySelector('#sirket_fiyat').innerHTML = document.querySelector('#fiyat'+sira).innerHTML;
+      document.querySelector('#sirket_tür').innerHTML = document.querySelector('#tür'+sira).innerHTML;
+    }
+    }
+
+
+
+
+     const satır = document.getElementsByClassName("satır");
+     const btnAdd = document.getElementsByClassName("info");
+     const CartList = document.querySelector(".shopping-cart-list");
+
+     class Shopping{
+       constructor(title,tür,price){
+         this.title = title;
+         this.tür = tür;
+         this.price = price;
+        
+       }
+     }
+
+    
+
+
+     for (let i = 0; i < satır.length; i++) {
+    btnAdd[i].addEventListener("click", function(e) {
+
+      document.querySelector('#shopping-list-company').innerHTML = satır[i].getElementsByClassName("sirket")[0].textContent;
+     
+     document.querySelector('#shopping-list-product').innerHTML  = satır[i].getElementsByClassName("sirkett")[0].textContent;
+    
+     document.querySelector('#shopping-list-price').innerHTML  = satır[i].getElementsByClassName("sirketf")[0].textContent;
+
+  
+  e.preventDefault(); 
+   })
+   
+     }
+
+    
+  </script>
+
+  <!-- Modal  -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">DETAY</h5>
+          <div>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p id="sirket_ismi">AK SİGORTA</p>
+          <p id="sirket_fiyat">150</p>
+          <p id="sirket_tür">kasko sigorta</p>
+        </div>
+        <div class="modal-footer">
+          
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">kapat</button>
+
+          <button data-bs-toggle="modal"  data-bs-target="#exampleModal1" type="button" class="btn btn-primary">satın al</button>
+          <div class="">
+            <!-- <a type="button" id="sepet" class="btn btn-primary text-white">sepete ekle</a> -->
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+  <!-- Modal ödeme  -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ödeme</h5>
+        <div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="page-header text-center">
+              <h1>ÖDEME SAYFASI</h1>
+          </div>
+          
+          <div class="container">
+              <div class="row">
+                  <div class="col-xs-12 col-md-6 col-md-offset-4">
+                      <div class="panel panel-default">
+                          <div class="panel-heading">
+                              <div class="row">
+                                  
+                                  <div class="inlineimage"> </div>
+                              </div>
+                          </div>
+                          <div class="panel-body">
+                              <form role="form">
+                                  <div class="row">
+                                      <div class="col-xs-12">
+                                          <div class="form-group"> <label>KART NUMARASI</label>
+                                              <div class="input-group"> <input type="tel" class="form-control" placeholder="Kart Numarası" /> <span class="input-group-addon"><span class="fa fa-credit-card"></span></span> </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-xs-7 col-md-7">
+                                          <div class="form-group"> <label><span class="hidden-xs">SKT</span><span class="visible-xs-inline"></span> </label> <input type="tel" class="form-control" placeholder="MM / YY" /> </div>
+                                      </div>
+                                      <div class="col-xs-5 col-md-5 pull-right">
+                                          <div class="form-group"> <label>CVV</label> <input type="tel" class="form-control" placeholder="CVC" /> </div>
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-xs-12">
+                                          <div class="form-group"> <label>KART SAHİBİ</label> <input type="text" class="form-control" placeholder="İsim Soyisim" /> </div>
+                                      </div>
+                                  </div>
+                              </form>
+                          </div>
+
+                         <div class="shopping-cart-list bg-primary text-center">
+                          <b class="fs-5 text-white my-3"> shopping list</b>
+                          <div class="list-item">
+                            <div class="row align-items-center text-white-50">
+                              <div class="col-md-6">
+                                <div id="shopping-list-company" class="title">Axa sigorta</div>
+                              </div>
+                              <div class="col-md-7">
+                                <div id="shopping-list-product" class="tür">Trafik sigortası</div>
+                              <div class="col-md-2">
+                                <div id="shopping-list-price" class="price">$140</div>
+                              </div>
+                              <div class="col-md-5">
+                                <div class="btn btn-delete">
+                                  <i class="fas fa-trash-alt text-danger"></i>
+                                </div>
+                              </div>
+
+                              
+                            </div>
+                          </div>
+                         </div> 
+                  </div>
+              </div>
+          </div>
+      </div>
+        <div class=" container">
+          <div class="page-header text-center">
+            
+      </div>
+      </div>
+      <div class="modal-footer">  
+        <div class="cgl panel-footer">
+          <div class="row">
+              <div class="col-xs-12"> <button id="odeme" onclick="alert()" class="btn btn-success btn-lg btn-block">ONAYLA</button> </div>
+          </div>
+      </div>
+  </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

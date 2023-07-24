@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Test</title>
+        <style> 
+
+        .kutucuk{
+            background-color: lightgray;
+            max-width: 300px;
+            padding: 4px;
+            border: 3px solid;
+
+        }
+        #harf {
+            display: table;
+            margin: 0 auto 0 auto;
+        }
+        
+        </style>
+    </head>
+    <body>
+       <div class="kutucuk"> Rastgele harf: <br> <span id="harf"> </span></div>
+        <br>
+    
+        <button  type="button" onclick="random()">Üret</button>
+    </body>
+    <script>
+
+        let x = document.getElementById('harf');
+        
+        function random() {
+        for (let i = 0; i < 4; i++) {
+            
+            let str = '';
+
+            const harfler = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            
+            for (let i = 0; i < 4; i++) {
+                str += harfler.charAt(Math.floor(Math.random() * harfler.length));
+            }
+            x.innerHTML = x.innerHTML + ' - ' + str;
+        };
+        x.innerHTML = x.innerHTML + '<br>';
+    };
+  
+    </script>
+    
+
+</html>
+        
+       

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>firstsite</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .header{
+            background-color:darkseagreen;
+            padding: 25px;
+            text-align: center;
+        }
+        .nav {
+overflow: hidden;
+background-color: darkslategray;
+        }
+
+        .nav a{
+        padding: 14px 17px;
+        float: left;
+        text-decoration: none;
+        color: aliceblue;
+
+
+        }
+
+        .nav a:hover{
+            background-color: darkgray;
+        }
+        
+    .power{
+        float: left;
+        padding: 15px;
+    }
+    .power.side{
+
+        width: 25% ;
+    }
+    .power.madium{
+
+        width: 50%;
+    }
+    .row::after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+    .footer{
+        background-color:darkseagreen;
+        padding: 15px 12px;
+        text-align: center;
+    }
+    .signupform {
+        margin: auto;
+        background-color: wheat;
+        padding: 20%;
+        max-width: 250%;
+
+    }
+.form {
+    display: block;
+    margin-top: 0cm;
+    margin-block-end:  1em;;
+
+}
+
+    </style>
+</head>
+<body>
+
+
+
+
+    <div style="display: flex;justify-content: center;align-items: center;">
+        <h1 id="cagla">POP</h1>
+</div>
+    <button>TIKLA</button>
+
+    <div class="main-popup">
+
+    <div class="popup">
+      <div class="popup-close">x</div>
+      <div class="popup-content">
+        <h3> polisoft software</h3>
+        <p> junior front end </p>
+        <a href="http://www.polisoft.com.tr/"> Detayı Gör</a>
+   </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div style="display: flex;justify-content: center;align-items: center;">
+<h1 id="cagla"></h1>
+    </div>
+    <form class="yasHesaplama">
+        <input type="text" id="username" placeholder="Doğum tarihini giriniz">
+        <input type="submit" value="HESAPLA">
+
+    </form>
+
+
+
+
+
+
+
+
+
+
+    <label class="mode-control">
+         <input id="mode-btn" type="checkbox">
+         <span>Koyu Mod</span>
+         <span>Açık Mod</span>
+    </label>
+
+    <div class="header">
+     <h1>ÇAĞLA</h1>
+    <p>Lorem ipsum dolor sit amet consectetur.</p>
+    
+    </div>
+
+
+    <div  class="nav">
+        <a href="https://www.linkedin.com/in/%C3%A7a%C4%9Fla-%C3%B6zt%C3%BCrk-7146b5183/">Linkedln</a>
+        <a href="2sayfa.html">İleri</a>
+        <a href="#">Link</a>
+        
+    </div>
+
+   <div class="row">
+    <div class="power side">
+        <h2>Side</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+    </div>
+    <div class="power madium">
+        <h2>Hakkımda</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab maxime voluptatibus ullam tempore veritatis assumenda asperiores corporis mollitia eos alias, iste omnis et! Veniam, dolores?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur ipsa dolorum aut aspernatur harum deleniti doloribus inventore asperiores. Aut cupiditate neque expedita dolore quas perspiciatis!</p>
+    </div>
+    <div class="power side">
+        <h2>Side</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    </div>
+   </div>
+
+   <div class="footer">
+    <p>Footer</p>
+   </div>
+
+
+   
+
+
+
+<div id="zaman"></div>
+<script>
+function tarihSaat() {
+    var date = new Date().toLocaleString('tr-TR');
+    document.getElementById("zaman").innerHTML = date;
+}
+// her 1 saniyede tarihSaat fonksiyonunu yeniden çalıştır
+setInterval(tarihSaat, 1000); 
+</script> 
+
+
+
+<script src="momentjs.com_downloads_moment"> </script>
+   <script src="script.js"></script>
+  
+
+   
+   <style>
+     
+      .clock{
+  text-align: center;
+  font-size: 10px;
+  position: relative;
+  color: yellow
+  
+      }
+  .clock span {
+      padding: 25px;
+      background: rgb(95, 95, 95);
+  
+  }
+   </style>
+  
+  </head>
+  <body>
+         <div class="clock"></div>
+     
+  <script src="tıme.js"></script>
+  </body>
+
+
+</body>
+</html>

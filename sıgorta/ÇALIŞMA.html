@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>DOM</h1>
+<div>
+    <p>çağla</p>
+    <p> öztürk</p>
+    <p class="error"> iş</p>
+
+</div>
+<div class="error"> <p> dikkat</p></div>
+
+<script>
+// const dene =document.querySelector('p')
+// const dene =document.querySelector('.error')
+// const dene =document.querySelector('div.error')
+// const denemeler =document.querySelectorAll('p')
+// denemeler.forEach(dene => {
+//     console.log(dene);
+// })
+
+const pdegeri=document.querySelectorAll('p');
+
+ pdegeri.forEach(a => {
+    console.log(a.innerText);
+    a.innerText +='çağlaaaa';
+ })
+ 
+
+
+
+
+
+
+
+</script>
+</body>
+
+</html>
